@@ -5,7 +5,7 @@ import type { NextConfig } from "next";
 // };
 
 // export default nextConfig;
-/** @type {import('next').NextConfig} */
+// /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     serverExternalPackages: ["@sparticuz/chromium"]
