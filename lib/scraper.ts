@@ -1,20 +1,15 @@
-import puppeteer from "puppeteer";
-import chromium from "@sparticuz/chromium";
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium-min";
 
 
 // import fs from "node:fs"  // we are saving it file here 
 export async function scrapeAmazon(searchQuery: string) {
-const browser = await puppeteer.launch(
-  process.env.VERCEL
-    ? {
-        args: chromium.args,
-        executablePath: await chromium.executablePath(),
-        headless: true,
-      }
-    : {
-        headless: true,
-      }
-);
+const browser = await puppeteer.launch({
+    args: chromium.args,
+    executablePath: await chromium.executablePath(),
+    headless: true,
+  });
+
 
   const page = await browser.newPage();
 
