@@ -8,8 +8,9 @@ import type { NextConfig } from "next";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    serverComponentsExternalPackages: ["@sparticuz/chromium"]
+    serverExternalPackages: ["@sparticuz/chromium"]
   }
 };
 
 module.exports = nextConfig;
+
