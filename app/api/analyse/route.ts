@@ -34,8 +34,10 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    // console.error("Analysis error:", error);
+    console.error("Analysis error:", error);
+
     return NextResponse.json(
+
       { error: "Failed to analyze Amazon products" },
       { status: 500 }
     );
