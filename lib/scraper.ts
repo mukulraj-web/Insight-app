@@ -1,7 +1,14 @@
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
+
+
 import fs from "node:fs"  // we are saving it file here 
 export async function scrapeAmazon(searchQuery: string) {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+  args: chromium.args,
+  executablePath: await chromium.executablePath(),
+  headless: true,
+});
   const page = await browser.newPage();
 
   try {

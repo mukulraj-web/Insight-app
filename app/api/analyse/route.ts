@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import { scrapeAmazon } from "@/lib/scraper";
 import { analyzeProducts } from "@/lib/analyser";
 import { opportunityScore } from "@/lib/opportunityScore";
