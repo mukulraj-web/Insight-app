@@ -1,14 +1,21 @@
-import puppeteer from "puppeteer-core";
+import puppeteer from "puppeteer";
 import chromium from "@sparticuz/chromium";
 
 
-import fs from "node:fs"  // we are saving it file here 
+// import fs from "node:fs"  // we are saving it file here 
 export async function scrapeAmazon(searchQuery: string) {
-  const browser = await puppeteer.launch({
-  args: chromium.args,
-  executablePath: await chromium.executablePath(),
-  headless: true,
-});
+const browser = await puppeteer.launch(
+  process.env.VERCEL
+    ? {
+        args: chromium.args,
+        executablePath: await chromium.executablePath(),
+        headless: true,
+      }
+    : {
+        headless: true,
+      }
+);
+
   const page = await browser.newPage();
 
   try {
@@ -102,12 +109,12 @@ export async function scrapeAmazon(searchQuery: string) {
 
       return products;
     });
-    try {
-      fs.writeFileSync("data.json", JSON.stringify(results, null, 2));
-      console.log("saved succesfull");
-    } catch (error) {
-      console.log("not able the to save", error);
-    }
+    // try {
+      // fs.writeFileSync("data.json", JSON.stringify(results, null, 2));
+      // console.log("saved succesfull");
+    // } catch (error) {
+      // console.log("not able the to save", error);
+    // }
     return results;
   } finally {
     await browser.close();
