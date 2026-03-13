@@ -12,7 +12,7 @@ export interface ProductInsights {
 }
 
 interface ProductCardProps {
-  insights?: ProductInsights;
+  insights?: ProductInsights | null;
 }
 
 export default function ProductCard({ insights }: ProductCardProps) {
