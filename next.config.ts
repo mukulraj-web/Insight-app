@@ -1,6 +1,8 @@
 
+
+
 const nextConfig = {
-  serverExternalPackages: ["@sparticuz/chromium", "@sparticuz/chromium-min"],
+  serverExternalPackages: ["@sparticuz/chromium", "puppeteer-core"],
 };
 
-module.exports = nextConfig;
+export default nextConfig;
